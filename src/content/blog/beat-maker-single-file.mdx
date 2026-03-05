@@ -1,0 +1,47 @@
+---
+title: "Shipping a music app in one HTML file"
+date: "2026-01-15"
+readTime: "5 min"
+description: "Why constraints breed creativity — and how a single file produced a better product."
+---
+
+## The Constraint
+
+One file. No build step. No dependencies. No framework. Just HTML, CSS, and JavaScript in a single file that you can open in any browser.
+
+That was the constraint for Beat Maker — a browser-based music creation tool with an interactive sequencer grid.
+
+## Why Single-File?
+
+Three reasons:
+
+1. **Portability** — download the file, double-click, it works. No `npm install`, no environment setup.
+2. **Simplicity** — no bundler config, no module resolution, no build errors. The development loop is: edit, save, refresh.
+3. **Focus** — when you can't reach for a library, you're forced to understand the fundamentals.
+
+## The Web Audio API
+
+The entire audio engine runs on the Web Audio API — a browser-native interface for generating and manipulating sound. No samples, no audio files. Every sound is synthesised in real-time.
+
+The core pattern is simple: create an oscillator, connect it to a gain node, connect that to the audio output. Control frequency for pitch, gain for volume, and oscillator type for timbre.
+
+For drums, short noise bursts with an envelope give you convincing kick, snare, and hi-hat sounds without any samples.
+
+## The Sequencer
+
+The sequencer is a grid of buttons. Each row is an instrument, each column is a beat. Click to toggle. When playback starts, a cursor sweeps across the columns at the set BPM, triggering any active beats.
+
+The timing uses `setInterval` synced to the audio context's clock. This is important — using JavaScript timing alone introduces drift. The audio context's clock is hardware-accurate.
+
+## What I'd Do Differently
+
+If I built it again, I'd still use a single file — but I'd add:
+- **Preset patterns** — starting from a blank grid is intimidating for new users
+- **Export to WAV** — the `OfflineAudioContext` API makes this possible without a server
+- **Touch support** — mobile users can't hover, so the interaction model needs rethinking
+
+## The Takeaway
+
+Constraints breed creativity. A single-file constraint eliminated an entire class of engineering problems (builds, dependencies, deployment) and let me focus entirely on the product. The result shipped faster, runs anywhere, and has zero maintenance overhead.
+
+Sometimes the best architecture is no architecture.

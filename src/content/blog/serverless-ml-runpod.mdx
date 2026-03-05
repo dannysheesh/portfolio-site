@@ -1,0 +1,65 @@
+---
+title: "Serverless ML with RunPod and Docker"
+date: "2026-02-05"
+readTime: "6 min"
+description: "Containerising a model and deploying it as a pay-per-use endpoint. No Kubernetes required."
+---
+
+## The Goal
+
+Deploy a machine learning model as a serverless endpoint. Pay only when it runs. No managing servers, no Kubernetes, no idle compute costs.
+
+RunPod makes this straightforward: package your model in a Docker container, push it to their registry, and they handle the rest.
+
+## Containerising the Model
+
+The Dockerfile is simple:
+
+```dockerfile
+FROM python:3.11-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+COPY handler.py .
+COPY model/ ./model/
+CMD ["python", "handler.py"]
+```
+
+The key file is `handler.py` — RunPod's serverless workers expect a handler function that receives a job payload and returns results.
+
+```python
+import runpod
+
+def handler(job):
+    input_data = job["input"]
+    # Load model, run inference
+    result = model.predict(input_data)
+    return {"output": result}
+
+runpod.serverless.start({"handler": handler})
+```
+
+## Cold Starts
+
+The main trade-off with serverless ML: cold starts. The first request after idle time has to spin up a container and load the model into memory. For a lightweight model, this is 5–10 seconds. For larger models, it can be 30+ seconds.
+
+Mitigation strategies:
+- **Keep the container image small** — use slim base images, only install required dependencies
+- **Use RunPod's active workers** — keep one warm instance for low-latency responses
+- **Quantise the model** — smaller models load faster
+
+## Cost Comparison
+
+For a model that runs ~100 inference calls per day:
+- **Always-on GPU instance**: ~$200/month
+- **RunPod serverless**: ~$15/month
+
+The savings are dramatic for bursty, low-volume workloads.
+
+## When Not to Use Serverless
+
+If your model serves thousands of requests per minute with strict latency requirements, dedicated infrastructure is better. Serverless shines for internal tools, prototypes, and any workload where utilisation is low but availability matters.
+
+## The Bottom Line
+
+Docker + RunPod serverless is the fastest path from trained model to production endpoint. You can go from a working notebook to a deployed API in under an hour.

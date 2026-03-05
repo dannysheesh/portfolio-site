@@ -1,0 +1,49 @@
+---
+title: "Building a RAG chatbot from scratch"
+date: "2026-03-10"
+readTime: "8 min"
+description: "The retrieval pipeline, embedding strategy, vector DB choice, and the prompt engineering that made it useful."
+---
+
+## Why RAG?
+
+Large language models are powerful, but they hallucinate. When you need grounded, factual answers from a specific corpus of documents, retrieval-augmented generation is the answer. Instead of hoping the model "knows" the answer, you retrieve the relevant context first, then let the model synthesise a response.
+
+This post walks through the architecture of a RAG chatbot I built to replace manual knowledge lookup in enterprise teams.
+
+## The Pipeline
+
+The system has four stages: **ingest**, **index**, **retrieve**, and **generate**. Each one is a clean module with a single responsibility.
+
+### 1. Ingest
+
+Documents are uploaded, parsed, and chunked. I used a recursive character splitter with 512-token chunks and 50-token overlap. This preserves context across chunk boundaries without exploding the vector count.
+
+Key decisions here:
+- **Chunk size matters.** Too small and you lose context. Too large and retrieval precision drops.
+- **Overlap prevents information loss** at chunk boundaries — a sentence split across two chunks still gets captured.
+
+### 2. Index
+
+Each chunk gets embedded using a sentence-transformer model and stored in ChromaDB with metadata (source document, page number, chunk index). ChromaDB was chosen for its simplicity — it's embeddable, runs locally, and handles document-scale collections without a separate server.
+
+### 3. Retrieve
+
+When a user sends a query, it's embedded with the same model and matched against the index using cosine similarity. The top-k chunks (default: 5) are returned with their metadata.
+
+I experimented with hybrid search (combining keyword and semantic) but found pure semantic retrieval performed well enough for this use case.
+
+### 4. Generate
+
+The retrieved chunks are injected into a structured prompt template. The model receives the user's question alongside the relevant context and produces a grounded answer with citations pointing back to source documents.
+
+## Model Choice
+
+I chose **DeepSeek 14B running locally via Ollama**. The reasoning:
+- **Data privacy** — enterprise documents never leave the network
+- **Zero per-query cost** — after the initial setup, inference is free
+- **Good enough quality** — for document Q&A, a 14B model with good context is surprisingly capable
+
+## What I Learned
+
+The biggest lesson: **retrieval quality matters more than model quality.** A mediocre model with great retrieval beats a frontier model with bad retrieval every time. Spend your time on chunking strategy and embedding quality, not model selection.

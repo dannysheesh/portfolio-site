@@ -1,0 +1,43 @@
+---
+title: "An autonomous ML agent in 8 phases"
+date: "2026-02-20"
+readTime: "12 min"
+description: "From data ingestion to model validation — the iterative process of building Sakura."
+---
+
+## The Problem
+
+Most machine learning workflows are repetitive. Load data, clean it, engineer features, try a few models, tune hyperparameters, validate, report. What if an agent could handle the entire pipeline autonomously?
+
+That's Sakura — an agentic AI system that takes a dataset and produces a trained, validated model without manual intervention.
+
+## Why 8 Phases?
+
+Building an autonomous system all at once is a recipe for failure. Instead, I broke the project into eight incremental phases, each adding a capability layer and tested before moving on:
+
+1. **Data loading** — CSV/JSON parsing with type detection
+2. **Data profiling** — automated statistical analysis and quality checks
+3. **Feature engineering** — generating and selecting features based on data characteristics
+4. **Model selection** — evaluating model families for the task type
+5. **Training** — hyperparameter tuning with cross-validation
+6. **Validation** — metrics generation and structured reporting
+7. **Agent orchestration** — LLM as the decision backbone, reasoning about which step to execute next
+8. **End-to-end testing** — full pipeline tests including Ollama inference validation
+
+## The Agent Architecture
+
+The core insight: the LLM doesn't do the ML work — it *decides* what work to do. Each pipeline step is a tool the agent can invoke. The agent receives the dataset, analyses the profiling results, and makes decisions about which steps to run and in what order.
+
+This separation of concerns — reasoning vs. execution — is what makes the system reliable. The ML code is deterministic and well-tested. The agent just orchestrates it.
+
+## Testing an Autonomous System
+
+Testing was the hardest part. How do you test something that's supposed to make its own decisions?
+
+The answer: **test the tools independently, then test the orchestration end-to-end.** Each pipeline step has unit tests with known inputs and expected outputs. The E2E tests run the full agent on sample datasets and verify that the final model meets minimum quality thresholds.
+
+I also added Ollama inference tests to validate that the local LLM produces structurally valid responses — the agent's reasoning needs to be parseable, not just coherent.
+
+## Key Takeaway
+
+Autonomous doesn't mean unpredictable. With well-tested tools and structured reasoning, an agent can handle complex workflows reliably. The trick is constraining the decision space — give the agent clear options, not open-ended freedom.
