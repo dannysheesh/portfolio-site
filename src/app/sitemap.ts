@@ -5,7 +5,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPosts();
 
   const blogEntries = posts.map((post) => ({
-    url: `https://dannymangelsdorf.com/blog/${post.slug}`,
+    url: `https://mangelsdorf.au/blog/${post.slug}`,
     lastModified: new Date(post.date),
     changeFrequency: "monthly" as const,
     priority: 0.7,
@@ -13,13 +13,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     {
-      url: "https://dannymangelsdorf.com",
+      url: "https://mangelsdorf.au",
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 1,
     },
     {
-      url: "https://dannymangelsdorf.com/blog",
+      url: "https://mangelsdorf.au/blog",
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.8,

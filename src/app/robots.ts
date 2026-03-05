@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://dannymangelsdorf.com/sitemap.xml",
+    sitemap: "https://mangelsdorf.au/sitemap.xml",
   };
 }
