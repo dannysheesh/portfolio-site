@@ -21,6 +21,8 @@ export default function ProjectShowcase({ project }: ProjectShowcaseProps) {
             loading="lazy"
             title={project.title}
             className="w-full h-full border-none"
+            sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+            allow="clipboard-read; clipboard-write"
           />
         ) : (
           <div className="w-full h-full flex flex-col items-center justify-center gap-3">
