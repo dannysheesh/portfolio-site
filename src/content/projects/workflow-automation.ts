@@ -15,27 +15,27 @@ export const workflowAutomation: ProjectData = {
     steps: [
       {
         step: 1,
-        title: "Receive",
+        title: "Ingest",
         description:
           "Events arrive from 10 built-in connectors — Gmail, Slack, Zendesk, Xero, and more — normalised into a universal WorkItem model.",
       },
       {
         step: 2,
-        title: "Understand",
+        title: "Classify & Retrieve",
         description:
-          "AI classifies intent, urgency, and category. RAG retrieves relevant context from knowledge bases.",
+          "AI classifies intent, urgency, and category. Hybrid RAG retrieves relevant context from knowledge bases via semantic + keyword search.",
       },
       {
         step: 3,
-        title: "Safeguard",
+        title: "Reason & Safeguard",
         description:
-          "Guardrails check for PII, prohibited content, and bias. Confidence-based routing decides auto-resolve vs. human review.",
+          "LLM drafts a response using classification and retrieved context. Guardrails check for PII, prohibited content, and bias.",
       },
       {
         step: 4,
-        title: "Act",
+        title: "Route & Act",
         description:
-          "Approved responses sent, tickets updated, notifications dispatched. Full audit trail with Langfuse tracing.",
+          "Confidence-based routing: high-confidence items auto-resolve, uncertain ones go to human review. Replies sent, tickets updated, full audit trail logged.",
       },
     ],
   },

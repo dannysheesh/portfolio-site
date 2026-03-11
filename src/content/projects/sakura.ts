@@ -2,72 +2,72 @@ import type { ProjectData } from "@/lib/types";
 
 export const sakura: ProjectData = {
   slug: "sakura",
-  title: "Sakura \u2014 Autonomous ML Agent",
+  title: "Sakura — Autonomous ML Agent",
   summary:
-    "An agentic AI system that handles the full ML pipeline autonomously \u2014 data profiling, feature engineering, model selection, training, and validation. Built iteratively across eight development phases with end-to-end testing.",
-  tags: ["Python", "Agentic AI", "AutoML", "E2E Testing"],
+    "A local-first, multi-agent AI system that autonomously completes the full ML lifecycle — from data ingestion and exploratory analysis through feature engineering, model training, evaluation, and artifact delivery. 10 specialist agents coordinate through an orchestrator, with sandboxed code execution and support for 11 LLM providers.",
+  tags: ["Python", "Multi-Agent AI", "Streamlit", "SQLite", "Ollama"],
   embedUrl: null,
-  previewImage: null,
-  liveUrl: "#",
+  previewImage: "/images/Autonomous_ML_Agent.png",
+  liveUrl: "https://github.com/dannysheesh",
   linkText: "View on GitHub",
   architecture: {
     label: "Agent Workflow",
     steps: [
       {
         step: 1,
-        title: "Profile",
+        title: "Ingest & Profile",
         description:
-          "Agent receives a dataset and autonomously analyses types, distributions, and quality.",
+          "Upload raw data with a business goal. The Data Analyst agent profiles types, distributions, and quality issues.",
       },
       {
         step: 2,
-        title: "Engineer",
+        title: "Research & Engineer",
         description:
-          "Generates and selects features based on data characteristics.",
+          "Web Researcher gathers domain context. Preprocessor cleans data. Feature Engineer creates and selects features.",
       },
       {
         step: 3,
-        title: "Train",
+        title: "Design & Train",
         description:
-          "Evaluates model families, tunes hyperparameters, selects the best performer.",
+          "Model Architect selects algorithms. Trainer runs training loops with hyperparameter tuning in a sandboxed environment.",
       },
       {
         step: 4,
-        title: "Validate",
+        title: "Evaluate & Deliver",
         description:
-          "Cross-validation, metrics generation, and structured reporting.",
+          "Evaluator runs cross-validation and metrics. Explainer generates SHAP analysis, model cards, and a final delivery report.",
       },
     ],
   },
   decisions: [
     {
+      key: "Agents",
+      highlight: "10 specialist agents.",
+      detail:
+        "Each handles a distinct ML lifecycle phase, coordinated by the Orchestrator.",
+    },
+    {
+      key: "LLM Routing",
+      highlight: "11 provider adapters.",
+      detail:
+        "Ollama (local), Anthropic, OpenAI, Google, Mistral, and more with automatic fallback.",
+    },
+    {
+      key: "Sandbox",
+      highlight: "Secure code execution.",
+      detail:
+        "Agent-generated scripts run in an isolated sandbox with memory and time limits.",
+    },
+    {
       key: "Development",
-      highlight: "8 iterative phases.",
+      highlight: "16 iterative phases.",
       detail:
-        "Each phase added a capability layer, tested before proceeding.",
-    },
-    {
-      key: "Orchestration",
-      highlight: "LLM as the decision backbone.",
-      detail:
-        "The agent reasons about which pipeline step to execute next.",
-    },
-    {
-      key: "Testing",
-      highlight: "E2E + integration tests",
-      detail:
-        "including Ollama inference tests for local model validation.",
-    },
-    {
-      key: "Trade-off",
-      highlight: "Autonomous operation.",
-      detail:
-        "The agent works on new data with zero manual config.",
+        "From bootstrapping through security hardening, each phase tested before proceeding.",
     },
   ],
   cta: {
     text: "Want to automate ML workflows?",
     detail:
-      "I build agentic systems that handle repetitive data science tasks.",
+      "I build multi-agent systems that handle the full data science lifecycle autonomously.",
   },
 };
