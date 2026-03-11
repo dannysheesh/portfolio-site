@@ -3,9 +3,9 @@ import ScrollReveal from "./ScrollReveal";
 const cards = [
   {
     category: "Technical Discovery",
-    title: "Stakeholder workshops & requirements mapping",
+    title: "Workshops & requirements mapping",
     description:
-      "I run discovery sessions with engineering, IT, and executive teams to identify pain points and map them to technical solutions — typically across simulation, data science, and supply chain workflows.",
+      "I run discovery sessions with internal pre-sales teams, product (brand) teams, and regional specialists — across Australia and globally with Paris — to scope customer problems and map them to technical solutions across industries including mining, energy, automotive, infrastructure, and defence.",
   },
   {
     category: "Demos & Proof of Concept",
@@ -17,13 +17,13 @@ const cards = [
     category: "Solution Architecture",
     title: "Platform design & integration planning",
     description:
-      "I architect how Dassault's platform fits into existing tech stacks — API integrations, data pipelines, deployment models, and migration paths. I translate technical constraints into business trade-offs for executive sign-off.",
+      "I architect how Dassault's platform fits into existing customer tech stacks — API integrations, data pipelines, and deployment models. I work across simulation, data science, and supply chain solutions.",
   },
   {
-    category: "RFx & Procurement",
-    title: "Technical responses & evaluation support",
+    category: "RFx & Competitive Evaluation",
+    title: "Technical responses & solution proposals",
     description:
-      "I lead the technical side of RFPs, RFIs, and competitive evaluations. I write technical responses, run benchmark comparisons, and present to procurement and IT governance teams.",
+      "I lead the technical side of RFPs and RFIs — writing technical responses, proposing the best-fit solution architecture, and presenting to customer evaluation panels.",
   },
 ];
 

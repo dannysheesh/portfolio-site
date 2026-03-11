@@ -32,10 +32,10 @@ export default function Home() {
               I turn ambiguous problems into working software — and I know how to sell them.
             </strong>{" "}
             Over the past three years at Dassault Systèmes, I&apos;ve supported
-            $30–50M in enterprise pipeline across manufacturing, life sciences,
-            and CPG — running technical discovery, building demos, designing
-            proof-of-concept architectures, and presenting to executive
-            stakeholders. Outside of work, I build full-stack AI products from
+            $30–50M in enterprise pipeline across industries including mining,
+            energy, automotive, infrastructure, and defence — running technical
+            discovery, building demos, designing proof-of-concept architectures,
+            and presenting to stakeholders. Outside of work, I build full-stack AI products from
             scratch.
           </p>
         </ScrollReveal>
