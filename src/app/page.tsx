@@ -78,9 +78,9 @@ export default function Home() {
       {/* Approach */}
       <ApproachSection />
 
+      {/* Writing / Blog — hidden for now
       <div className="w-full h-px bg-gray-800" />
 
-      {/* Writing / Blog */}
       <section id="writing" className="max-w-[980px] mx-auto px-8 pb-32">
         <ScrollReveal>
           <p className="text-[0.7rem] font-medium text-gray-500 uppercase tracking-[0.1em] mb-4">
@@ -102,6 +102,7 @@ export default function Home() {
       </section>
 
       <div className="w-full h-px bg-gray-800" />
+      */}
 
       {/* CTA */}
       <CTASection />
