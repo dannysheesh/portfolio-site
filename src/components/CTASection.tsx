@@ -17,7 +17,7 @@ export default function CTASection() {
       <ScrollReveal delay={2}>
         <div className="flex gap-6 justify-center items-center flex-wrap">
           <a
-            href="mailto:dwmangelsdorf@gmail.com"
+            href="mailto:daniel@mangelsdorf.au"
             className="text-blue no-underline text-[1.05rem] font-normal inline-flex items-center gap-[0.35rem] transition-all duration-250 hover:gap-[0.6rem]"
           >
             Email <span className="text-[1.2rem]">&rsaquo;</span>
