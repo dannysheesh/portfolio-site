@@ -11,7 +11,7 @@ export default function CTASection() {
       <ScrollReveal delay={1}>
         <p className="text-[1.1rem] text-gray-400 font-light max-w-[440px] mx-auto mb-10 leading-[1.6]">
           Open to AI solutions engineering, technical pre-sales,
-          and contract engagements. Melbourne. Available now.
+          and the right full-time opportunity. Melbourne.
         </p>
       </ScrollReveal>
       <ScrollReveal delay={2}>

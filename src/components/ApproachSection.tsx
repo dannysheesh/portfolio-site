@@ -3,21 +3,27 @@ import ScrollReveal from "./ScrollReveal";
 const approaches = [
   {
     num: "01",
-    title: "Understand",
+    title: "Discover",
     description:
-      "Three years of enterprise discovery means I ask the right questions before writing a line of code. I map pain points to technical solutions — not the other way around.",
+      "I start where the customer is — not where the technology is. Enterprise discovery taught me to listen for the real problem underneath the stated one, map stakeholders, and find the constraints that actually matter.",
   },
   {
     num: "02",
-    title: "Prototype",
+    title: "Architect",
     description:
-      "I build working software in days, not months. You get something real to react to — not a slide deck full of promises.",
+      "I design solutions that balance ambition with reality. That means choosing the right model, the right integration pattern, and the right deployment model — then explaining the trade-offs to both engineers and executives.",
   },
   {
     num: "03",
-    title: "Ship",
+    title: "Build",
     description:
-      "Everything I build gets deployed. Then we iterate based on real usage. The goal is production, not a proof of concept that lives in a folder.",
+      "I prototype fast. Working software in days, not months. Whether it's a customer-facing demo, an internal tool, or a full production system — I write the code myself and ship it.",
+  },
+  {
+    num: "04",
+    title: "Prove",
+    description:
+      "Nothing matters until it works in the real world. I measure outcomes, run evaluations, and iterate based on actual usage — not assumptions. The goal is production value, not a proof of concept that lives in a folder.",
   },
 ];
 

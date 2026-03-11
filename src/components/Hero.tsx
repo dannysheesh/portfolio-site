@@ -5,7 +5,7 @@ export default function Hero() {
     <section className="min-h-screen flex flex-col items-center justify-center text-center px-8 py-24 relative">
       <ScrollReveal>
         <p className="text-[0.8rem] font-normal text-gray-400 mb-6 tracking-[0.02em]">
-          AI Solutions Engineer &amp; Full-Stack Developer
+          AI Solutions Engineer &amp; Technical Pre-Sales
         </p>
       </ScrollReveal>
       <ScrollReveal delay={1}>
@@ -20,8 +20,8 @@ export default function Hero() {
       <ScrollReveal delay={2}>
         <p className="text-xl text-gray-400 max-w-[520px] leading-[1.6] font-light mb-10">
           I design and build AI systems — RAG pipelines, autonomous agents,
-          data platforms, and production web apps. 3+ years enterprise pre-sales.
-          Based in Melbourne.
+          data platforms, and production web apps. 3+ years enterprise
+          pre-sales at Dassault Systèmes. Based in Melbourne.
         </p>
       </ScrollReveal>
       <ScrollReveal delay={3}>
