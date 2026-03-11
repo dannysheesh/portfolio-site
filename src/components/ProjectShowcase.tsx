@@ -24,6 +24,13 @@ export default function ProjectShowcase({ project }: ProjectShowcaseProps) {
             sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
             allow="clipboard-read; clipboard-write"
           />
+        ) : project.previewImage ? (
+          <img
+            src={project.previewImage}
+            alt={`${project.title} preview`}
+            loading="lazy"
+            className="w-full h-full object-cover object-top"
+          />
         ) : (
           <div className="w-full h-full flex flex-col items-center justify-center gap-3">
             <div className="text-[2.5rem] opacity-25">&#x2588;&#x2588;&#x2588;</div>

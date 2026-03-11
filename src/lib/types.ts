@@ -16,6 +16,7 @@ export interface ProjectData {
   summary: string;
   tags: string[];
   embedUrl: string | null;
+  previewImage: string | null;
   liveUrl: string;
   linkText: string;
   architecture: {

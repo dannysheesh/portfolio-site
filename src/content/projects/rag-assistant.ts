@@ -6,7 +6,8 @@ export const ragAssistant: ProjectData = {
   summary:
     "A RAG-powered AI assistant that helps Melbourne residents navigate city council services — from waste management and parking permits to pet registration and community events. Scrapes and processes real council data, then answers questions with grounded, cited responses.",
   tags: ["Python", "RAG", "FastAPI", "ChromaDB", "Next.js", "Scrapy"],
-  embedUrl: "https://frontend-ten-umber-71.vercel.app/",
+  embedUrl: null,
+  previewImage: "/images/councilmate-preview.png",
   liveUrl: "https://frontend-ten-umber-71.vercel.app/",
   linkText: "Try the demo",
   architecture: {

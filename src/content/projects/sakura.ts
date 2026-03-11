@@ -7,6 +7,7 @@ export const sakura: ProjectData = {
     "An agentic AI system that handles the full ML pipeline autonomously \u2014 data profiling, feature engineering, model selection, training, and validation. Built iteratively across eight development phases with end-to-end testing.",
   tags: ["Python", "Agentic AI", "AutoML", "E2E Testing"],
   embedUrl: null,
+  previewImage: null,
   liveUrl: "#",
   linkText: "View on GitHub",
   architecture: {
