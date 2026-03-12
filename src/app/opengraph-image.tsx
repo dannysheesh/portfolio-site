@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 
-export const alt = "Danny Mangelsdorf — AI Solutions Engineer";
+export const alt = "Daniel Mangelsdorf — AI Solutions Engineer";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -38,7 +38,7 @@ export default async function Image() {
               lineHeight: 1.1,
             }}
           >
-            Danny Mangelsdorf
+            Daniel Mangelsdorf
           </div>
           <div
             style={{
@@ -48,7 +48,7 @@ export default async function Image() {
               letterSpacing: "-0.01em",
             }}
           >
-            AI Solutions Engineer & Full-Stack Developer
+            AI Solutions Engineer & Technical Pre-Sales
           </div>
           <div
             style={{

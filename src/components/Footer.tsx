@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-gray-800 p-8">
       <div className="max-w-[980px] mx-auto flex justify-between items-center">
-        <span className="text-xs text-gray-600">&copy; 2026 Danny Mangelsdorf</span>
+        <span className="text-xs text-gray-600">&copy; 2026 Daniel Mangelsdorf</span>
         <div className="flex gap-6">
           <a
             href="https://www.linkedin.com/in/daniel-mangelsdorf/"

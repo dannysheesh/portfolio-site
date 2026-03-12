@@ -12,22 +12,22 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://mangelsdorf.au"),
   title: {
-    default: "Danny Mangelsdorf — AI Solutions Engineer",
-    template: "%s — Danny Mangelsdorf",
+    default: "Daniel Mangelsdorf — AI Solutions Engineer",
+    template: "%s — Daniel Mangelsdorf",
   },
   description:
     "I build AI systems that ship. RAG pipelines, autonomous agents, data platforms, and production web apps.",
   openGraph: {
-    title: "Danny Mangelsdorf",
-    description: "AI Solutions Engineer & Full-Stack Developer",
-    siteName: "Danny Mangelsdorf",
+    title: "Daniel Mangelsdorf",
+    description: "AI Solutions Engineer & Technical Pre-Sales",
+    siteName: "Daniel Mangelsdorf",
     locale: "en_AU",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Danny Mangelsdorf",
-    description: "AI Solutions Engineer & Full-Stack Developer",
+    title: "Daniel Mangelsdorf",
+    description: "AI Solutions Engineer & Technical Pre-Sales",
   },
   robots: {
     index: true,
