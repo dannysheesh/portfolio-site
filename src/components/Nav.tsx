@@ -1,36 +1,48 @@
+"use client";
+
+import Link from "next/link";
+import { useEffect, useState } from "react";
+
 export default function Nav() {
+  const [time, setTime] = useState<Date | null>(null);
+
+  useEffect(() => {
+    setTime(new Date());
+    const id = setInterval(() => setTime(new Date()), 1000);
+    return () => clearInterval(id);
+  }, []);
+
+  const clockStr = time ? time.toTimeString().slice(0, 8) : "--:--:--";
+
   return (
-    <nav className="fixed top-0 w-full z-[100] bg-black/72 backdrop-blur-[20px] backdrop-saturate-[180%]">
-      <div className="max-w-[980px] mx-auto px-6 h-12 flex items-center justify-between">
-        <div className="text-[0.9rem] font-semibold text-gray-100 tracking-[-0.01em]">
-          Daniel Mangelsdorf
-        </div>
-        <div className="flex gap-8 items-center">
-          <a
-            href="#work"
-            className="hidden md:inline text-gray-300 no-underline text-xs font-normal transition-colors duration-250 hover:text-white"
+    <nav className="capy-nav">
+      <div className="capy-nav-inner">
+        <Link
+          href="/"
+          className="capy-nav-title"
+          style={{ color: "var(--paper)", textDecoration: "none" }}
+        >
+          <span className="dot" />
+          <span>DANIEL.MANGELSDORF</span>
+          <span
+            style={{
+              color: "var(--accent-4)",
+              fontFamily: "var(--font-vt323), monospace",
+              fontSize: 15,
+              marginLeft: 2,
+            }}
           >
-            Work
-          </a>
-          <a
-            href="#approach"
-            className="hidden md:inline text-gray-300 no-underline text-xs font-normal transition-colors duration-250 hover:text-white"
-          >
-            Approach
-          </a>
-          <a
-            href="#writing"
-            className="hidden md:inline text-gray-300 no-underline text-xs font-normal transition-colors duration-250 hover:text-white"
-          >
-            Writing
-          </a>
-          <a
-            href="#contact"
-            className="text-gray-300 no-underline text-xs font-normal transition-colors duration-250 hover:text-white"
-          >
-            Contact
-          </a>
-        </div>
+            [CAPYOS]
+          </span>
+        </Link>
+        <div className="capy-nav-spacer" />
+        <Link href="/#about">ABOUT</Link>
+        <Link href="/#work">WORK</Link>
+        <Link href="/#approach">APPROACH</Link>
+        <Link href="/#contact">CONTACT</Link>
+        <span className="capy-nav-clock" suppressHydrationWarning>
+          {clockStr}
+        </span>
       </div>
     </nav>
   );

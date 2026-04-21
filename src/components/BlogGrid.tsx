@@ -1,5 +1,4 @@
 import type { BlogPostMeta } from "@/lib/types";
-import ScrollReveal from "./ScrollReveal";
 import BlogCard from "./BlogCard";
 
 interface BlogGridProps {
@@ -8,11 +7,16 @@ interface BlogGridProps {
 
 export default function BlogGrid({ posts }: BlogGridProps) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-      {posts.map((post, i) => (
-        <ScrollReveal key={post.slug} delay={i < 4 ? i : 0}>
-          <BlogCard post={post} />
-        </ScrollReveal>
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
+        gap: 20,
+        marginTop: 32,
+      }}
+    >
+      {posts.map((post) => (
+        <BlogCard key={post.slug} post={post} />
       ))}
     </div>
   );

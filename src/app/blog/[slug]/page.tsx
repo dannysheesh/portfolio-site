@@ -42,32 +42,56 @@ export default async function BlogPost({ params }: BlogPostPageProps) {
 
   return (
     <>
-      <article className="max-w-[720px] mx-auto px-8 pt-32 pb-20">
+      <article
+        style={{
+          maxWidth: 720,
+          margin: "0 auto",
+          padding: "56px 32px 60px",
+        }}
+      >
         <Link
           href="/blog"
-          className="text-blue no-underline text-sm font-normal inline-flex items-center gap-[0.3rem] mb-12 transition-all duration-250 hover:gap-[0.55rem]"
+          className="btn"
+          style={{ marginBottom: 32, display: "inline-flex" }}
         >
-          <span>&lsaquo;</span> All posts
+          &lt; all_posts
         </Link>
 
-        <header className="mb-12">
-          <p className="text-[0.7rem] font-medium text-gray-500 uppercase tracking-[0.06em] mb-4">
-            {formattedDate} &middot; {meta.readTime} read
-          </p>
-          <h1 className="text-[clamp(2rem,4.5vw,3rem)] font-bold tracking-[-0.035em] leading-[1.15] mb-4">
+        <header style={{ margin: "28px 0 28px" }}>
+          <div
+            className="eyebrow"
+            style={{ marginBottom: 18 }}
+          >
+            {formattedDate} · {meta.readTime} READ
+          </div>
+          <h1
+            className="pixel"
+            style={{
+              fontSize: "clamp(28px, 4.5vw, 44px)",
+              lineHeight: 1.1,
+              marginBottom: 14,
+              color: "var(--ink)",
+            }}
+          >
             {meta.title}
           </h1>
-          <p className="text-[1.1rem] text-gray-400 font-light leading-[1.6]">
+          <p
+            style={{
+              color: "var(--ink-soft)",
+              fontSize: 16,
+              lineHeight: 1.6,
+            }}
+          >
             {meta.description}
           </p>
         </header>
 
-        <div className="prose prose-invert prose-gray max-w-none prose-headings:tracking-tight prose-headings:font-semibold prose-p:text-gray-300 prose-p:font-light prose-p:leading-[1.75] prose-a:text-blue prose-strong:text-gray-100 prose-code:text-gray-200 prose-pre:bg-gray-900 prose-pre:border prose-pre:border-gray-800 prose-li:text-gray-300 prose-li:font-light">
+        <hr className="hr-dot" style={{ margin: "24px 0 28px" }} />
+
+        <div className="prose-capy">
           <MDXRemote source={content} />
         </div>
       </article>
-
-      <div className="w-full h-px bg-gray-800" />
       <Footer />
     </>
   );
